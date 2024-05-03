@@ -5,6 +5,7 @@ import { SearchQueryContext } from "./JobPostSection";
 const SearchTags = () => {
   const { filter, setFilter } = useContext(FilterContext);
   const { setSearchQuery, setLastSearchQuery } = useContext(SearchQueryContext);
+  const { setCurrentPage } = useContext(CurrentPageContext);
 
   function handleTagClick(key, item) {
     const updatedFilter = { ...filter };
@@ -12,6 +13,7 @@ const SearchTags = () => {
     if (key === "query") {
       setSearchQuery("");
       setLastSearchQuery("");
+      setCurrentPage(0);
     }
 
     if (updatedFilter[key]) {

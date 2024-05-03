@@ -3,10 +3,7 @@ version: '3'
 services:
 
   frontend:
-    #image: sofocused/job-post-frontend:1.0.0
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: sofocused/job-post-frontend:1.0.1
     restart: unless-stopped
     ports:
       - "80:80"

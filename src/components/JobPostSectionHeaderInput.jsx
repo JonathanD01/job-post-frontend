@@ -6,6 +6,7 @@ const JobPostSectionHeaderInput = () => {
   const { filter, setFilter } = useContext(FilterContext);
   const { searchQuery, setSearchQuery, lastSearchQuery, setLastSearchQuery } =
     useContext(SearchQueryContext);
+  const { setCurrentPage } = useContext(CurrentPageContext);
 
   function handleSend() {
     if (searchQuery.length >= 1) {
@@ -21,6 +22,7 @@ const JobPostSectionHeaderInput = () => {
       setFilter({ ...filter, query: [] });
       setSearchQuery("");
       setLastSearchQuery("");
+      setCurrentPage(0);
     }
   }
 

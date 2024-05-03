@@ -10,8 +10,6 @@ COPY ./src ./src
 
 COPY ./public ./public
 
-COPY .env.production.local ./
-
 RUN npm run build
 
 FROM nginx:alpine
@@ -20,6 +18,6 @@ COPY ./nginx/default.conf /etc/nginx/nginx.conf
 
 COPY --from=build /app/build /usr/share/nginx/html
 
-ENV API_URL 'https://backend.example.com'
+EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { handleError } from "../utils/ErrorUtil";
 
-const API_URL = process.env.REACT_APP_API_URL;
+const API_URL = "/api/v1/jobposts";
 
 export async function getJobPosts(page = 0, size = 12, filter = null) {
   const filterQuery = buildFilterQuery(filter);

@@ -4,14 +4,11 @@ import {
   DataContext,
   LoadingContext,
 } from "./JobPostsPage";
-import { getAllJobPosts } from "../services/JobPostService";
 
 const Pagination = () => {
   const data = useContext(DataContext);
   const { isLoading } = useContext(LoadingContext);
   const { currentPage, setCurrentPage } = useContext(CurrentPageContext);
-
-  const jobPostsToDisplay = 12;
 
   function handleNewPage(newPage) {
     setCurrentPage(newPage);
