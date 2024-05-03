@@ -12,6 +12,7 @@ const JobPostSectionHeaderInput = () => {
     if (searchQuery.length >= 1) {
       setFilter({ ...filter, query: [searchQuery] });
       setLastSearchQuery(searchQuery);
+      setCurrentPage(0);
     }
   }
 
