@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { DataContext, FilterContext, LoadingContext } from "./JobPostsPage";
+import { DataContext, LoadingContext } from "./JobPostsPage";
 import { CurrentPageContext } from "./JobPostsPage";
 import { SearchQueryContext } from "./JobPostSection";
 

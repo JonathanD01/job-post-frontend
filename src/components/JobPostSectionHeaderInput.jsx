@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { SearchQueryContext } from "./JobPostSection";
-import { FilterContext } from "./JobPostsPage";
+import { CurrentPageContext, FilterContext } from "./JobPostsPage";
 
 const JobPostSectionHeaderInput = () => {
   const { filter, setFilter } = useContext(FilterContext);

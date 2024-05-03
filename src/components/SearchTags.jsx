@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { FilterContext } from "./JobPostsPage";
+import { CurrentPageContext, FilterContext } from "./JobPostsPage";
 import { SearchQueryContext } from "./JobPostSection";
 
 const SearchTags = () => {
