@@ -37,6 +37,9 @@ const JobPostDetail = () => {
   }, [id]);
 
   const usePostImage = (url) => {
+    if (!url) {
+      return false;
+    }
     for (let i = 0; i < postsToUseImageFor.length; i++) {
       if (url.replace("www", "").startsWith(postsToUseImageFor[i])) {
         return true;

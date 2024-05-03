@@ -17,6 +17,16 @@ function App() {
           </Routes>
           <ToastContainer style={{ width: "auto" }} />
         </div>
+        <footer>
+          <p
+            style={{
+              fontStyle: "italic",
+              textAlign: "center",
+            }}
+          >
+            Build {process.env.NODE_ENV}
+          </p>
+        </footer>
       </main>
     </>
   );
