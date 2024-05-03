@@ -1,0 +1,15 @@
+export const fylkerINorge = [
+  "Oslo",
+  "Akershus",
+  "Buskerud",
+  "Østfold",
+  "Innlandet",
+  "Vestfold og Telemark",
+  "Agder",
+  "Rogaland",
+  "Vestland",
+  "Møre og Romsdal",
+  "Trøndelag",
+  "Nordland",
+  "Troms og Finmark",
+];

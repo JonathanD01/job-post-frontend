@@ -1,0 +1,7 @@
+**/node_modules
+**/build
+**/graphics
+**/.github
+**/.git
+.env copy
+.env.production copy

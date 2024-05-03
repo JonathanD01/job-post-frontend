@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+
+  frontend:
+    image: sofocused/job-post-frontend:1.0.0
+    restart: unless-stopped
+    ports:
+      - "80:80"
+
+  backend-service:
+    image: sofocused/job-post-api:1.0.0
+    restart: unless-stopped
+    depends_on:
+      - job-post-database
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://job-post-database/testdb
+      - SPRING_JPA_SHOW-SQL=false
+      - CORS_ALLOWED-ORIGINS=http://localhost:3000
+
+  job-post-database:
+    image: postgres:alpine
+    restart: unless-stopped
+    volumes:
+      - C:\postgres_container_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER="admin"
+      - POSTGRES_PASSWORD="admin"
+      - POSTGRES_DB="testdb"
