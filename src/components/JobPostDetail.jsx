@@ -51,7 +51,7 @@ const JobPostDetail = () => {
   const groupDescription = (jobDescription) => {
     const groupedMap = new Map();
 
-    if (jobPost && jobPost.deadline_valid) {
+    if (jobPost && jobPost.deadline) {
       groupedMap.set("Frist", [jobPost.deadline]);
     } else {
       groupedMap.set("Frist", ["Snarest"]);
