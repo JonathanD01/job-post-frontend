@@ -1,7 +1,17 @@
 import React, { useState } from "react";
+import {
+  getInitialFilterSetState,
+  updateFilterSetState,
+} from "../utils/StateUtil";
 
 const FilterSet = ({ label, checkboxes }) => {
-  const [hidden, setHidden] = useState(false);
+  const [hidden, setHidden] = useState(getInitialFilterSetState(label));
+
+  function toggleHidden() {
+    const value = !hidden;
+    setHidden(value);
+    updateFilterSetState(label, value);
+  }
 
   return (
     <div>
@@ -9,10 +19,7 @@ const FilterSet = ({ label, checkboxes }) => {
         <div>
           <p className="filter-title">{label}</p>
         </div>
-        <div
-          className="filter-button-container"
-          onClick={() => setHidden(!hidden)}
-        >
+        <div className="filter-button-container" onClick={() => toggleHidden()}>
           {!hidden && (
             <button className="button button__secondary">&#9650;</button>
           )}

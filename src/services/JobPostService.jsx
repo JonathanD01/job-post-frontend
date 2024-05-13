@@ -1,7 +1,10 @@
 import axios from "axios";
 import { handleError } from "../utils/ErrorUtil";
 
-const API_URL = "/api/v1/jobposts";
+const API_URL =
+  process.env.NODE_ENV === "production"
+    ? "/api/v1/jobposts"
+    : "http://localhost:8080/api/v1/jobposts";
 
 export async function getJobPosts(page = 0, size = 12, filter = null) {
   const filterQuery = buildFilterQuery(filter);

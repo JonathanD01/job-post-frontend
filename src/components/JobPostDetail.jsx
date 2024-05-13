@@ -80,26 +80,21 @@ const JobPostDetail = () => {
   return (
     <div className="jobpostdetail">
       <div className="jobpostdetail__img-container-grid">
-        <div className="jobpostdetail__img-container">
-          {usePostImage(jobPost?.image_url) && jobPost?.image_url ? (
-            <img src={jobPost?.image_url}></img>
-          ) : (
-            <img src="/images/rainbow-waves.jpg"></img>
-          )}
-        </div>
         <div className="jobpostdetail__container">
-          <div className="jobpostdetail__img-circle-container">
-            {jobPost?.company_image_url && (
-              <img src={jobPost?.company_image_url}></img>
-            )}
+          <div className="jobpostdetail__grid">
+            <div className="jobpostdetail__content">
+              <h1 className="mb-0">{jobPost?.title}</h1>
+              <p className="mt-0">{jobPost?.company_name}</p>
+              <small>
+                {jobPost && getValueFromDescriptionMap(jobPost, "Sted")}
+              </small>
+            </div>
           </div>
 
-          <div className="jobpostdetail__content">
-            <h1 className="mb-0">{jobPost?.title}</h1>
-            <p className="mt-0">{jobPost?.company_name}</p>
-            <small>
-              {jobPost && getValueFromDescriptionMap(jobPost, "Sted")}
-            </small>
+          <div className="mt-3">
+            <Link title={jobPost?.url} to={jobPost?.url}>
+              Se hele annonsen
+            </Link>
           </div>
 
           <div className="jobpostdetail__description">
@@ -130,15 +125,6 @@ const JobPostDetail = () => {
                     ))}
                   </dl>
                 )}
-                <div className="text-center mt-3">
-                  <Link
-                    className="w-100 button button__larger w-100"
-                    title={jobPost?.url}
-                    to={jobPost?.url}
-                  >
-                    Gå til annonse
-                  </Link>
-                </div>
               </div>
             </div>
           </div>

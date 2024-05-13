@@ -37,8 +37,9 @@ body {
     font-size: 16px;
 }
 
-h1, h2, h2 a, h3, h4, h5, h6 {
+h1, h2, h2 a, h3, h4, h5, h6, strong {
     color: var(--primary-color)!important;
+    word-break: break-all;
 }
 
 .w-100 {
@@ -371,7 +372,6 @@ a.button__larger {
 
 
 .jobpostdetail {
-    max-width: 80%;
     margin: auto;
 }
 
@@ -384,28 +384,8 @@ a.button__larger {
     display: flex;
 }
 
-.jobpostdetail__img-container-grid {
-    position: relative;
-}
-
-.jobpostdetail__img-container img {
-    display: block;
-    width: 100%;
-    height: 370px;
-    border-radius: var(--outer-radius);
-    object-fit: cover;
-    object-position: center 50%;
-    filter: brightness(0.85);
-}
-
-.jobpostdetail__img-circle-container {
-    position: absolute;
-    top: 275px;
-}
-
 .jobpostdetail__img-circle-container img {
     display: block;
-    width: auto;
     height: 60px;
     border-radius: var(--outer-radius);
     background-color: var(--white-color);
@@ -415,7 +395,6 @@ a.button__larger {
 
 .jobpostdetail__content {
     position: relative;
-    margin-top: 100px;
     padding-bottom: 50px;
     border-bottom: 1px solid rgba(128, 128, 128, 0.4);
 }
@@ -515,6 +494,10 @@ a.button__larger {
     
     .tags {
         display: flex;
+    }
+
+    .jobpostdetail {
+        max-width: 80%;
     }
     
     .jobpostdetail__description {

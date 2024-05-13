@@ -33,7 +33,7 @@ const JobPostSectionHeaderInput = () => {
         <input
           className="input__query"
           tabIndex="1"
-          placeholder="Skriv inn nøkkelord som kiwi butikk"
+          placeholder="Prøv å skrive inn sommerjobb eller kiwi"
           value={searchQuery}
           onChange={(event) => handleOnChange(event)}
           onKeyDown={(e) => (e.key === "Enter" ? handleSend() : "")}

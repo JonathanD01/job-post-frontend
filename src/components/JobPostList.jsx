@@ -23,7 +23,7 @@ const JobPostList = ({ displayAmount }) => {
           <div>
             <h3>Oisann, her var det tomt!</h3>
           </div>
-          <img src="/images/cry-girl.jpg"></img>
+          <img src="/images/spongebob-cry.jpg"></img>
         </div>
       )}
     </div>

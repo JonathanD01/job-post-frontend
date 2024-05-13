@@ -3,13 +3,13 @@ version: '3'
 services:
 
   frontend:
-    image: sofocused/job-post-frontend:1.0.2
+    image: sofocused/job-post-frontend:1.0.3
     restart: unless-stopped
     ports:
       - "80:80"
 
   backend-service:
-    image: sofocused/job-post-api:1.0.0
+    image: sofocused/job-post-api:1.0.3
     restart: unless-stopped
     depends_on:
       - job-post-database

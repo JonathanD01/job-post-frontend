@@ -11,14 +11,18 @@ const JobPostSectionHeaderResult = () => {
 
   return (
     <div>
-      {isLoading && <h2 className="jobposts-title">Søker...</h2>}
+      {isLoading && (
+        <h2 id="jobposts-title" className="jobposts-title">
+          Søker...
+        </h2>
+      )}
       {!lastSearchQuery && !isLoading && (
-        <h2 className="jobposts-title">
+        <h2 id="jobposts-title" className="jobposts-title">
           Viser {data?.result ? data?.result.totalElements : 0} annonser
         </h2>
       )}
       {lastSearchQuery && !isLoading && (
-        <h2 className="jobposts-title">
+        <h2 id="jobposts-title" className="jobposts-title">
           Søket "{lastSearchQuery}" returnerte{" "}
           {data != null ? data?.result?.totalElements : 0} annonser
         </h2>

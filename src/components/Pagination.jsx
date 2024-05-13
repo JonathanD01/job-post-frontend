@@ -12,7 +12,7 @@ const Pagination = () => {
 
   function handleNewPage(newPage) {
     setCurrentPage(newPage);
-    window.scrollTo(0, 0);
+    document.getElementById("jobposts-title").scrollIntoView();
   }
 
   return (

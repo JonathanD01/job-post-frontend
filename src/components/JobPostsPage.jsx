@@ -2,7 +2,12 @@ import React, { createContext } from "react";
 import { useEffect, useState } from "react";
 import JobPostSection from "./JobPostSection";
 import { FilterSets } from "./FilterSets";
-import { initialFilter, updateFilter } from "../utils/FilterUtil";
+import {
+  getInitialFilter,
+  getInitialPage,
+  updateFilter,
+  updatePage,
+} from "../utils/StateUtil";
 import { getAllJobPosts } from "../services/JobPostService";
 import { handleError } from "../utils/ErrorUtil";
 
@@ -13,9 +18,9 @@ export const CurrentPageContext = createContext(null);
 
 const JobPostsPage = () => {
   const [data, setData] = useState();
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(getInitialPage);
   const [isLoading, setIsLoading] = useState(false);
-  const [filter, setFilter] = useState(initialFilter);
+  const [filter, setFilter] = useState(getInitialFilter);
 
   useEffect(() => {
     let ignore = false;
@@ -26,7 +31,10 @@ const JobPostsPage = () => {
         const result = await getAllJobPosts(currentPage, 12, filter);
         if (!ignore && result) {
           setData(result.data);
+
+          // Update application state
           updateFilter(filter);
+          updatePage(currentPage);
         }
       } catch (error) {
         handleError(error);
