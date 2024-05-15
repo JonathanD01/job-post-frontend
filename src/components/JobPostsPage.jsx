@@ -10,6 +10,7 @@ import {
 } from "../utils/StateUtil";
 import { getAllJobPosts } from "../services/JobPostService";
 import { handleError } from "../utils/ErrorUtil";
+import { Helmet } from "react-helmet";
 
 export const DataContext = createContext(null);
 export const FilterContext = createContext(null);
@@ -51,37 +52,44 @@ const JobPostsPage = () => {
   }, [currentPage, filter]);
 
   return (
-    <div className="main-container">
-      <FilterContext.Provider
-        value={{
-          filter,
-          setFilter,
-        }}
-      >
-        <div className="left-side">
-          <FilterSets />
-        </div>
-        <div className="right-side">
-          <DataContext.Provider value={data}>
-            <LoadingContext.Provider
-              value={{
-                isLoading,
-                setIsLoading,
-              }}
-            >
-              <CurrentPageContext.Provider
+    <>
+      <Helmet>
+        <title>{`Søk Jobb - ${
+          data?.result?.totalElements ? data.result.totalElements : 0
+        } annonser`}</title>
+      </Helmet>
+      <div className="main-container">
+        <FilterContext.Provider
+          value={{
+            filter,
+            setFilter,
+          }}
+        >
+          <div className="left-side">
+            <FilterSets />
+          </div>
+          <div className="right-side">
+            <DataContext.Provider value={data}>
+              <LoadingContext.Provider
                 value={{
-                  currentPage,
-                  setCurrentPage,
+                  isLoading,
+                  setIsLoading,
                 }}
               >
-                <JobPostSection />
-              </CurrentPageContext.Provider>
-            </LoadingContext.Provider>
-          </DataContext.Provider>
-        </div>
-      </FilterContext.Provider>
-    </div>
+                <CurrentPageContext.Provider
+                  value={{
+                    currentPage,
+                    setCurrentPage,
+                  }}
+                >
+                  <JobPostSection />
+                </CurrentPageContext.Provider>
+              </LoadingContext.Provider>
+            </DataContext.Provider>
+          </div>
+        </FilterContext.Provider>
+      </div>
+    </>
   );
 };
 

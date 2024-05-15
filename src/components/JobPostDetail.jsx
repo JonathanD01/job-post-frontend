@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { getValueFromDescriptionMap } from "../utils/JobPostUtil";
 import parse from "html-react-parser";
 import { handleError } from "../utils/ErrorUtil";
+import { Helmet } from "react-helmet";
 
 const JobPostDetail = () => {
   const [jobPost, setJobPost] = useState(null);
@@ -78,72 +79,99 @@ const JobPostDetail = () => {
   /* safe enough? parse(jobPost.description.replace("<script>", "skript")) oh well...  */
 
   return (
-    <div className="jobpostdetail">
-      <div className="jobpostdetail__img-container-grid">
-        <div className="jobpostdetail__container">
-          <div className="jobpostdetail__grid">
-            <div className="jobpostdetail__content">
-              <h1 className="mb-0">{jobPost?.title}</h1>
-              <p className="mt-0">{jobPost?.company_name}</p>
-              <small>
-                {jobPost && getValueFromDescriptionMap(jobPost, "Sted")}
-              </small>
-            </div>
-          </div>
+    <>
+      {isLoading && (
+        <div className="centered-div m-section">
+          <h2>Laster inn...</h2>
+          <p>Vent en liten stund</p>
+        </div>
+      )}
+      {!jobPost && !isLoading && (
+        <div className="centered-div m-section">
+          <h2>Oi, ingenting her!</h2>
+          <p>En feil oppstod og siden kunne ikke lastes inn</p>
+        </div>
+      )}
+      {jobPost && !isLoading && (
+        <>
+          <Helmet>
+            <title>{`${jobPost.company_name} - ${jobPost.title} - Søk Jobb `}</title>
+            <meta
+              name="description"
+              content={`${jobPost.description.substring(0, 100)}`}
+            />
+          </Helmet>
+          <div className="jobpostdetail">
+            <div className="jobpostdetail__img-container-grid">
+              <div className="jobpostdetail__container">
+                <div className="jobpostdetail__grid">
+                  <div className="jobpostdetail__content">
+                    <h1 className="mb-0">{jobPost?.title}</h1>
+                    <p className="mt-0">{jobPost?.company_name}</p>
+                    <small>
+                      {jobPost && getValueFromDescriptionMap(jobPost, "Sted")}
+                    </small>
+                  </div>
+                </div>
 
-          <div className="mt-3">
-            <Link title={jobPost?.url} to={jobPost?.url}>
-              Se hele annonsen
-            </Link>
-          </div>
+                <div className="mt-3">
+                  <Link title={jobPost?.url} to={jobPost?.url}>
+                    Se hele annonsen
+                  </Link>
+                </div>
 
-          <div className="jobpostdetail__description">
-            <div>
-              <div>
-                {jobPost &&
-                  parse(
-                    jobPost.description
-                      .replaceAll("<script>", "skript")
-                      .replaceAll("<a", "<span")
-                      .replaceAll("a/>", "span/>")
-                  )}
-              </div>
-            </div>
-            <div>
-              <div className="jobpostdetail__right-section-card">
-                {jobPost && jobPost.job_description && (
-                  <dl>
-                    {[
-                      ...groupDescription(jobPost.job_description).entries(),
-                    ].map(([key, values]) => (
-                      <React.Fragment key={key}>
-                        <dt>{key}</dt>
-                        {values.map((value, index) => (
-                          <dd key={index}>{value}</dd>
-                        ))}
-                      </React.Fragment>
-                    ))}
-                  </dl>
+                <div className="jobpostdetail__description">
+                  <div>
+                    <div>
+                      {jobPost &&
+                        parse(
+                          jobPost.description
+                            .replaceAll("<script>", "skript")
+                            .replaceAll("<a", "<span")
+                            .replaceAll("a/>", "span/>")
+                        )}
+                    </div>
+                  </div>
+                  <div>
+                    <div className="jobpostdetail__right-section-card">
+                      {jobPost && jobPost.job_description && (
+                        <dl>
+                          {[
+                            ...groupDescription(
+                              jobPost.job_description
+                            ).entries(),
+                          ].map(([key, values]) => (
+                            <React.Fragment key={key}>
+                              <dt>{key}</dt>
+                              {values.map((value, index) => (
+                                <dd key={index}>{value}</dd>
+                              ))}
+                            </React.Fragment>
+                          ))}
+                        </dl>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                {jobPost?.job_tags && (
+                  <div className="mt-3">
+                    <h2>Nøkkelord</h2>
+                    <div className="tags">
+                      {jobPost?.job_tags.map((tag, index) => (
+                        <p onClick={() => alert("coming soon")} key={index}>
+                          {tag.tag.slice(0, 15)}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
                 )}
               </div>
             </div>
           </div>
-
-          {jobPost?.job_tags && (
-            <div className="mt-3">
-              <h2>Nøkkelord</h2>
-              <div className="tags">
-                {jobPost?.job_tags.map((tag, index) => (
-                  <p onClick={() => alert("coming soon")} key={index}>
-                    {tag.tag.slice(0, 15)}
-                  </p>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
+        </>
+      )}
+    </>
   );
 };
 
