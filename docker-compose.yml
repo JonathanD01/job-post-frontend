@@ -9,7 +9,7 @@ services:
       - "80:80"
 
   backend-service:
-    image: sofocused/job-post-api:1.0.3
+    image: sofocused/job-post-api:1.0.4
     restart: unless-stopped
     depends_on:
       - job-post-database
@@ -27,6 +27,6 @@ services:
     volumes:
       - C:\postgres_container_data:/var/lib/postgresql/data
     environment:
-      - POSTGRES_USER="admin"
-      - POSTGRES_PASSWORD="admin"
-      - POSTGRES_DB="testdb"
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=testdb
