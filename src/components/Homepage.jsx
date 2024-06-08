@@ -49,8 +49,8 @@ const Homepage = () => {
               "backend"
             </Link>{" "}
             og til slutt vist på nettsiden. Dette gjør det enklere for folk,
-            inkludert meg, som letter etter en jobb ettersom de{" "}
-            <span style={{ color: "red" }}>*</span>fleste stillingene er
+            inkludert meg, som letter etter en jobb ettersom{" "}
+            <span style={{ color: "red" }}>*</span>flere stillingene er
             tilgjengelige her.
             <p>
               <small>

@@ -22,3 +22,6 @@ View the scraper program at https://github.com/JonathanD01/job-scraper
 
 ## Dependencies
 - Docker
+
+## TODO
+- Add caching

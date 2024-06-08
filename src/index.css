@@ -225,8 +225,7 @@ header .sidebar .sidebar-links {
 .naked-url {
     background-color: var(--white-color);
     color: var(--black-color);
-    text-decoration: none;
-    border-bottom: 1px dotted var(--gray-color);
+    text-decoration: underline;
     padding: 5px;
     font-weight: 500;
 }
@@ -814,7 +813,7 @@ a.button__larger {
     }
     
     .jobposts {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
     
     .tags {
@@ -833,6 +832,12 @@ a.button__larger {
     
     .jobpostdetail__right-section-card {
         margin-top: initial;
+    }
+}
+
+@media (min-width: 1600px) {
+    .jobposts {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
