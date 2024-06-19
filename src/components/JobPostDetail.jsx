@@ -115,7 +115,11 @@ const JobPostDetail = () => {
                 </div>
 
                 <div className="mt-3">
-                  <Link title={jobPost?.url} to={jobPost?.url}>
+                  <Link
+                    title={jobPost?.url}
+                    to={jobPost?.url}
+                    target={"_blank"}
+                  >
                     Se hele annonsen
                   </Link>
                 </div>
