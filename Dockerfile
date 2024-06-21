@@ -4,6 +4,8 @@ WORKDIR /app
 
 COPY package.json ./
 
+COPY craco.config.js ./
+
 RUN npm install
 
 COPY ./src ./src
