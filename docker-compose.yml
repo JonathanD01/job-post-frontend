@@ -9,7 +9,7 @@ services:
       - "80:80"
 
   backend-service:
-    image: sofocused/job-post-api:1.0.8
+    image: sofocused/job-post-api:1.0.8.1
     restart: unless-stopped
     depends_on:
       - job-post-database
