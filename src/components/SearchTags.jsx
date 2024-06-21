@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
-import { CurrentPageContext, FilterContext } from "./JobPostsPage";
-import { SearchQueryContext } from "./JobPostSection";
+import { SearchQueryContext } from "./JobPostSectionHeader";
+import { CurrentPageContext, FilterContext } from "./JobPostsPageParent";
 
 const SearchTags = () => {
   const { filter, setFilter } = useContext(FilterContext);
   const { setSearchQuery, setLastSearchQuery } = useContext(SearchQueryContext);
   const { setCurrentPage } = useContext(CurrentPageContext);
 
-  function handleTagClick(key, item) {
+  function handleSearchBtnClearClick(key, item) {
     const updatedFilter = { ...filter };
 
     if (key === "query") {
@@ -33,7 +33,7 @@ const SearchTags = () => {
             return list.map((item) => (
               <li
                 key={`${key}-${item}`}
-                onClick={() => handleTagClick(key, item)}
+                onClick={() => handleSearchBtnClearClick(key, item)}
               >
                 {key.toLowerCase() === "query" ? `Søk "${item}"` : item}
               </li>

@@ -27,14 +27,14 @@ export const getInitialFilterSetState = (label) => {
   }
 };
 
-export function updateFilter(filter) {
+export function storeFilterInStorage(filter) {
   sessionStorage.setItem("filter", JSON.stringify(filter));
 }
 
-export function updatePage(page) {
+export function storePageInStorage(page) {
   sessionStorage.setItem("page", JSON.stringify(page));
 }
 
-export function updateFilterSetState(label, hide) {
+export function storeSpecificFilterStateInStorage(label, hide) {
   sessionStorage.setItem(label + "-hide", JSON.stringify(hide));
 }

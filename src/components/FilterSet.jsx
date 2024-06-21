@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import {
   getInitialFilterSetState,
-  updateFilterSetState,
+  storeSpecificFilterStateInStorage,
 } from "../utils/StateUtil";
 
-const FilterSet = ({ label, checkboxes }) => {
+const FilterSet = ({ label, children }) => {
   const [hidden, setHidden] = useState(getInitialFilterSetState(label));
 
   function toggleHidden() {
     const value = !hidden;
     setHidden(value);
-    updateFilterSetState(label, value);
+    storeSpecificFilterStateInStorage(label, value);
   }
 
   return (
@@ -28,7 +28,7 @@ const FilterSet = ({ label, checkboxes }) => {
           )}
         </div>
       </div>
-      {!hidden && checkboxes}
+      {!hidden && children}
     </div>
   );
 };

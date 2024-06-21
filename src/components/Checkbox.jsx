@@ -1,9 +1,9 @@
-import { useContext, useEffect, useState } from "react";
-import { FilterContext } from "./JobPostsPage";
+import { useContext } from "react";
+import { FilterContext, CurrentPageContext } from "./JobPostsPageParent";
 
 const Checkbox = ({ category, label }) => {
+  const { setCurrentPage } = useContext(CurrentPageContext);
   const { filter, setFilter } = useContext(FilterContext);
-  const [checked, setChecked] = useState(false);
 
   const categoryUpdates = {
     stilling: "position",
@@ -33,7 +33,9 @@ const Checkbox = ({ category, label }) => {
   }
 
   // Function to toggle filter selection
-  const updateChecked = () => {
+  function updateChecked() {
+    setCurrentPage(0);
+
     const properCategory = getProperCategoryName(category);
     const updatedFilter = { ...filter };
 
@@ -60,7 +62,7 @@ const Checkbox = ({ category, label }) => {
       }
     }
     setFilter(updatedFilter);
-  };
+  }
 
   return (
     <div className="checkbox-wrapper">

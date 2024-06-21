@@ -1,12 +1,12 @@
 import { Routes, Route, Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import JobPostsPage from "./components/JobPostsPage";
 import JobPostDetail from "./components/JobPostDetail";
 
 import "react-toastify/dist/ReactToastify.css";
 import Homepage from "./components/Homepage";
 import Navbar from "./components/Navbar";
 import NotFound from "./components/NotFound";
+import JobPostsPageParent from "./components/JobPostsPageParent";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
         <div className="container">
           <Routes>
             <Route exact path="/" element={<Homepage />} />
-            <Route path="/jobposts" element={<JobPostsPage />} />
+            <Route path="/jobposts" element={<JobPostsPageParent />} />
             <Route path="/jobposts/:id" element={<JobPostDetail />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

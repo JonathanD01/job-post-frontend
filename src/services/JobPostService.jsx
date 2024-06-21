@@ -46,13 +46,15 @@ function buildFilterQuery(filter) {
     // Handle filter as a plain JavaScript object
     Object.entries(filter).forEach(([filterKey, filterValues]) => {
       if (filterValues.length > 0) {
-        const start = `${filterKey.toLowerCase()}=${filterValues
-          .join(",")
-          .toLowerCase()}`;
+        const encodedFilterValues = filterValues
+          .map((value) => encodeURIComponent(value.toLowerCase()))
+          .join(",");
+        const start = `${filterKey.toLowerCase()}=${encodedFilterValues}`;
         filters.push(start);
       }
     });
   }
 
+  console.log(filters);
   return filters.length > 0 ? "&" + filters.join("&") : ""; // Only return query string if filters are present
 }

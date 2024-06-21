@@ -1,13 +1,10 @@
 import React, { useContext } from "react";
-import {
-  CurrentPageContext,
-  DataContext,
-  LoadingContext,
-} from "./JobPostsPage";
+import { CurrentPageContext } from "./JobPostsPageParent";
+import { DataContext, LoadingContext } from "./JobPosts";
 
 const Pagination = () => {
-  const data = useContext(DataContext);
-  const { isLoading } = useContext(LoadingContext);
+  const { data } = useContext(DataContext);
+  const { loading } = useContext(LoadingContext);
   const { currentPage, setCurrentPage } = useContext(CurrentPageContext);
 
   function handleNewPage(newPage) {
@@ -17,7 +14,7 @@ const Pagination = () => {
 
   return (
     <>
-      {!isLoading &&
+      {!loading &&
         data?.result?.numberOfElements > 0 &&
         data?.result?.totalPages > 1 && (
           <div className="pagination mt-3">
