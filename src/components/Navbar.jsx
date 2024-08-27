@@ -27,18 +27,7 @@ const Navbar = () => {
             <img id="logo" src="/favicon_io/favicon.ico" />
           </a>
 
-          <ul className="navbar-links">
-            <li>
-              <a href="/">
-                <span>Hjem</span>
-              </a>
-            </li>
-            <li>
-              <a href="/jobposts">
-                <span>Se annonser</span>
-              </a>
-            </li>
-          </ul>
+          <ul className="navbar-links"></ul>
 
           <ul className="navbar-links">
             <li>

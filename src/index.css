@@ -624,7 +624,6 @@ a.button__larger {
 
 .jobpostdetail__content {
     position: relative;
-    padding-bottom: 50px;
     border-bottom: 1px solid rgba(128, 128, 128, 0.4);
 }
 
@@ -799,7 +798,6 @@ a.button__larger {
         display: grid;
         grid-template-columns: 350px auto;
         column-gap: 80px;
-        background-color: var(--fifth-color);
         padding: 1.5rem;
         border-radius: var(--outer-radius);
     }
