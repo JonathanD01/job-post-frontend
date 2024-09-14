@@ -3,7 +3,7 @@ version: '3'
 services:
 
   frontend:
-    image: sofocused/job-post-frontend:1.1.0
+    image: sofocused/job-post-frontend:1.1.1
     restart: unless-stopped
     ports:
       - "80:80"
@@ -14,10 +14,11 @@ services:
     depends_on:
       - job-post-database
     environment:
-      - SPRING_FLYWAY_URL=jdbc:postgresql://job-post-database/testdb
+      - SPRING_FLYWAY_ENABLED=false
+      - SPRING_FLYWAY_URL=jdbc:postgresql://job-post-database/data
       - SPRING_FLYWAY_PASSWORD=admin
       - SPRING_FLYWAY_USER=admin
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://job-post-database/testdb
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://job-post-database/data
       - SPRING_JPA_SHOWSQL=false
       - CORS_ALLOWEDORIGINS=http://localhost:3000
 
@@ -25,7 +26,7 @@ services:
     image: postgres:alpine
     restart: unless-stopped
     volumes:
-      - C:\postgres_container_data:/var/lib/postgresql/data
+      - ~\postgres_container_data:/var/lib/postgresql/data
     environment:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=admin

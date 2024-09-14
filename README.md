@@ -1,6 +1,6 @@
 # FinnJobb
 
-<img src="./graphics/localhost_jobposts_1.png" width="45%"></img> <img src="./graphics/localhost_jobposts_2.png" width="45%"></img>
+<img src="./graphics/localhost_jobposts_1.png"></img>
 
 This repository contains a React frontend application that displays job postings fetched from a backend Spring Boot application. The job postings are obtained by scraping various job listing websites using a custom job scraper program.
 

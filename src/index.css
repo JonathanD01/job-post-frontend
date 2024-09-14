@@ -599,20 +599,6 @@ a.button__larger {
     border-radius: var(--inner-radius);
 }
 
-
-.jobpostdetail {
-    margin: auto;
-}
-
-.jobpostdetail__container {
-    max-width: 95%;
-    margin: auto;
-}
-
-.jobpostdetail__container .tags {
-    display: flex;
-}
-
 .jobpostdetail__img-circle-container img {
     display: block;
     height: 60px;
@@ -629,6 +615,8 @@ a.button__larger {
 
 .jobpostdetail__description {
     margin-top: 25px;
+    display: grid;
+    grid-template-columns: 1fr;
 }
 
 .jobpostdetail__description ul li {
@@ -796,9 +784,8 @@ a.button__larger {
     
     .main-container {
         display: grid;
-        grid-template-columns: 350px auto;
-        column-gap: 80px;
-        padding: 1.5rem;
+        grid-template-columns: 250px auto;
+        column-gap: 50px;
         border-radius: var(--outer-radius);
     }
     
@@ -818,12 +805,7 @@ a.button__larger {
         display: flex;
     }
     
-    .jobpostdetail {
-        max-width: 80%;
-    }
-    
     .jobpostdetail__description {
-        display: grid;
         grid-template-columns: 750px auto;
         column-gap: 100px;
     }
