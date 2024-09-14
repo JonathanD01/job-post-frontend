@@ -15,10 +15,10 @@ services:
       - job-post-database
     environment:
       - SPRING_FLYWAY_ENABLED=false
-      - SPRING_FLYWAY_URL=jdbc:postgresql://job-post-database/data
+      - SPRING_FLYWAY_URL=jdbc:postgresql://job-post-database/testdb
       - SPRING_FLYWAY_PASSWORD=admin
       - SPRING_FLYWAY_USER=admin
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://job-post-database/data
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://job-post-database/testdb
       - SPRING_JPA_SHOWSQL=false
       - CORS_ALLOWEDORIGINS=http://localhost:3000
 

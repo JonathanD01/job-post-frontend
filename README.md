@@ -4,7 +4,7 @@
 
 This repository contains a React frontend application that displays job postings fetched from a backend Spring Boot application. The job postings are obtained by scraping various job listing websites using a custom job scraper program.
 
-View the site at https://finnjobb.azurewebsites.net/
+View the site at https://jobb.krambo.xyz/
 
 View the backend at https://github.com/JonathanD01/job-post-backend
 
