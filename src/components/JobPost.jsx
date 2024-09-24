@@ -12,7 +12,7 @@ const JobPost = ({ jobpost }) => {
         )}
         <h2>
           <Link to={`/jobposts/${jobpost?.id}`}>
-            {jobpost?.title.slice(0, 75)}
+            {jobpost?.title}
           </Link>
         </h2>
         <p className="mt-1">
