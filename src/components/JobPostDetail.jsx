@@ -101,7 +101,7 @@ const JobPostDetail = () => {
               content={`${jobPost.description.substring(0, 100)}`}
             />
           </Helmet>
-          <div className="jobpostdetail">
+          <div className="jobpostdetail jobpostdetail__content">
             <div className="jobpostdetail__img-container-grid">
               <div className="jobpostdetail__container">
                 <div className="jobpostdetail__grid">
@@ -124,9 +124,29 @@ const JobPostDetail = () => {
                   </Link>
                 </div>
 
+                <div className="jobpostdetail__right-section-card">
+                  {jobPost && jobPost.job_description && (
+                    <div className="description-tags">
+                      {[
+                        ...groupDescription(jobPost.job_description).entries(),
+                      ].map(([key, values]) => (
+                        <React.Fragment key={key}>
+                          {values
+                            .filter((value) => value && value != ", ")
+                            .map((value, index) => (
+                              <span className="ptag" key={index}>
+                                <strong>{key}:</strong> {value}
+                              </span>
+                            ))}
+                        </React.Fragment>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
                 <div className="jobpostdetail__description">
                   <div>
-                    <div>
+                    <div class="jobpostdetail__content">
                       {jobPost &&
                         parse(
                           jobPost.description
@@ -136,31 +156,10 @@ const JobPostDetail = () => {
                         )}
                     </div>
                   </div>
-                  <div>
-                    <div className="jobpostdetail__right-section-card">
-                      {jobPost && jobPost.job_description && (
-                        <dl>
-                          {[
-                            ...groupDescription(
-                              jobPost.job_description
-                            ).entries(),
-                          ].map(([key, values]) => (
-                            <React.Fragment key={key}>
-                              <dt>{key}</dt>
-                              {values.map((value, index) => (
-                                <dd key={index}>{value}</dd>
-                              ))}
-                            </React.Fragment>
-                          ))}
-                        </dl>
-                      )}
-                    </div>
-                  </div>
                 </div>
 
                 {jobPost?.job_tags && (
-                  <div className="mt-3">
-                    <h2>Nøkkelord</h2>
+                  <div className="my-3">
                     <div className="tags">
                       {jobPost?.job_tags.map((tag, index) => (
                         <p onClick={() => alert("coming soon")} key={index}>

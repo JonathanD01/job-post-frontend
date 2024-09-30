@@ -72,7 +72,7 @@ body {
     font-weight: normal;
     color: var(--black-color);
     line-height: 1.8;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 h1, h2, h2 a, h3, h4, h5, h6, strong {
@@ -596,7 +596,7 @@ a.button__larger {
     color: var(--primary-color);
     font-weight: bold;
     border: 1px solid rgba(128, 128, 128, 0.4);
-    border-radius: var(--inner-radius);
+    border-radius: var(--outer-radius);
 }
 
 .jobpostdetail__img-circle-container img {
@@ -613,39 +613,35 @@ a.button__larger {
     border-bottom: 1px solid rgba(128, 128, 128, 0.4);
 }
 
-.jobpostdetail__description {
-    margin-top: 25px;
-    display: grid;
-    grid-template-columns: 1fr;
-}
-
-.jobpostdetail__description ul li {
-    margin-bottom: 10px;
+.jobpostdetail__content {
+    max-width: 800px;
+    margin-inline: auto;
 }
 
 .jobpostdetail__right-section-card {
-    border: 1px solid rgba(128, 128, 128, 0.4);
-    padding: 20px;
+    margin-block: 15px;
+}
+
+.description-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.ptag {
+    background-color: var(--third-color);
+    color: var(--permanent-white-color);
+    padding: 8px 16px 8px 16px;
     border-radius: var(--outer-radius);
-    font-size: 12px;
-    margin-top: 15px;
-}
-
-.jobpostdetail__right-section-card dl {
-    display: grid;
-    grid-template-columns: max-content auto;
-    row-gap: 20px;
-}
-
-.jobpostdetail__right-section-card dt {
-    grid-column-start: 1;
-    font-weight: 700;
     display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
 }
 
-.jobpostdetail__right-section-card dd {
-    grid-column-start: 2;
-    margin-inline-start: 10px;
+.ptag strong {
+    font-weight: bold;
+    margin-right: 5px;
+    color: var(--permanent-white-color)!important;
 }
 
 .skeleton-line {
@@ -718,14 +714,6 @@ a.button__larger {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr));
         grid-gap: 1.5rem;
-    }
-    
-    .jobpostdetail__right-section-card {
-        font-size: inherit;
-    }
-    
-    .jobpostdetail__right-section-card dd {
-        margin-inline-start: revert;
     }
 }
 
@@ -803,15 +791,6 @@ a.button__larger {
     
     .tags {
         display: flex;
-    }
-    
-    .jobpostdetail__description {
-        grid-template-columns: 750px auto;
-        column-gap: 100px;
-    }
-    
-    .jobpostdetail__right-section-card {
-        margin-top: initial;
     }
 }
 
